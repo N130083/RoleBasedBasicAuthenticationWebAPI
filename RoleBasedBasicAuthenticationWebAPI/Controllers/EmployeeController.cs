@@ -13,7 +13,7 @@ namespace RoleBasedBasicAuthenticationWebAPI.Controllers
     {
         [BasicAuthentication]
         [MyAuthorize(Roles="Admin")]
-        [Route("api/AllMaleEmployees")]
+        //[Route("api/AllMaleEmployees")]
         public HttpResponseMessage GetAllMaleEmployees()
         {
             var identity=(ClaimsIdentity)User.Identity;
@@ -29,7 +29,7 @@ namespace RoleBasedBasicAuthenticationWebAPI.Controllers
         }
         [BasicAuthentication]
         [MyAuthorize(Roles ="Superadmin")]
-        [Route("api/AllFemaleEmployees")]
+       // [Route("api/AllFemaleEmployees")]
         public HttpResponseMessage GetAllFemaleEmployees()
         {
             return Request.CreateResponse(HttpStatusCode.OK,new EmployeeBL().GetEmployees().Where(
@@ -37,7 +37,7 @@ namespace RoleBasedBasicAuthenticationWebAPI.Controllers
         }
         [BasicAuthentication]
         [MyAuthorize(Roles ="Admin,Superadmin")]
-        [Route("api/AllEmployees")]
+       // [Route("api/AllEmployees")]
         public HttpResponseMessage GetAllEmployees()
         {
             return Request.CreateResponse(HttpStatusCode.OK, new EmployeeBL().GetEmployees());
